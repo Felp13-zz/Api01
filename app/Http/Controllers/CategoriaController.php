@@ -43,7 +43,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $data = $request->all(); //pega tudo que vem da URL.
-        $categoria = Categoria::create($data); //Igual Insert into Produto. Conceito de ORM -> ELOQUENT.
+        $categoria = Categoria::create($data); //Igual Insert into Categoria. Conceito de ORM -> ELOQUENT.
 
         if($categoria){
 
@@ -51,7 +51,7 @@ class CategoriaController extends Controller
 
         }else{
 
-            return response()->json(['data'=>'Erro ao criar produto','status'=>false]);
+            return response()->json(['data'=>'Erro ao criar categoria','status'=>false]);
         }
 
     }
@@ -67,14 +67,14 @@ class CategoriaController extends Controller
         //SHOW = MOSTRAR.
         //MOSTRA AS INFORMAÇÕES PELO ID
 
-        $categoria = Categoria::find($id); //Vá na base e selecione o produto pelo ID
+        $categoria = Categoria::find($id); //Vá na base e selecione  a categoria pelo ID
 
         if($categoria){
 
             return response()->json(['data'=>$categoria,'status'=>true]);
 
         }else{
-            return response()->json(['data'=>'Produto não existe','status'=>false]);
+            return response()->json(['data'=>'Categoria não existe','status'=>false]);
         }
 
     }
