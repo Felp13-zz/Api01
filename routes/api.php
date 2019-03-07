@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });*/
 
 Route::resource('categoria', 'CategoriaController');//Essa Route(rota).
+Route::resource('produto', 'ProdutoController');//Essa Route(rota).

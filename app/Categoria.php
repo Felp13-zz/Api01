@@ -12,4 +12,11 @@ class Categoria extends Model
         'nome'
 
     ];
+
+   
+    public function produto()
+    {
+        return $this->hasMany('App\Produto');
+    }
+    
 }

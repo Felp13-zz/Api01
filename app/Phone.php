@@ -4,19 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+class Phone extends Model
 {
     //Serve para dizer quais campos irei utilizar
     protected $fillable = [
 
-        'descricao','cor','preco','peso'
+        'numero'
 
     ];
 
-    
-    public function categoria()
+    public function user()
     {
-        return $this->belongTo('App\Categoria');
+        return $this->belongsTo('App\User');
     }
-
 }
