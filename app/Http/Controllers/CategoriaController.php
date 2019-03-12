@@ -42,11 +42,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all(); //pega tudo que vem da URL.
-        $categoria = Categoria::create($data); //Igual Insert into Categoria. Conceito de ORM -> ELOQUENT.
+        $data = $request->only(['descricao']); //pega tudo que vem da URL ESPECIFICO a descrição .
+        $produtos = $request['produtos']; //Igual Insert into Categoria. Conceito de ORM -> ELOQUENT.
+
+        $categoria = Categoria::create($data);
 
         if($categoria){
 
+            $categoria->produto()->createMany($produtos);
             return response()->json(['data'=>$categoria,'status'=>true]);
 
         }else{
